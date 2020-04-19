@@ -1,0 +1,15 @@
+thetype,subtype,content_type,name,file_type,description
+mp3,source,mp3,audio,audio,Stereo mix of the recording
+pitch,pitch,txt,pitch,features,Automatically extracted predominant melody
+ctonic,tonic,txt,tonic,features,Automatically extracted tonic of the recording
+sama-manual,source,txt,sama,annotation,Manually annotated sama locations
+bpm-manual,source,txt,bpm,annotation,Manually annotated BPM
+tempo-manual,source,txt,tempo,annotation,Manually annotated tempo of the recording
+sections-manual-p,source,txt,sections,annotation,Manually annotated sections in the recording
+mphrases-manual,source,txt,phrases,annotation,Manually annotated melodic phrases
+multitrack-vocal,source,mp3,vocal,multitrack,Channel corresponding to  vocals
+multitrack-vocal-s,source,mp3,vocal_s,multitrack,Channel corresponding to secondary vocals (if present)
+multitrack-violin,source,mp3,violin,multitrack,Channel corresponding to  Violin
+multitrack-ghatam,source,mp3,ghatam,multitrack,Channel corresponding to  Ghatam
+multitrack-mridangam-left,source,mp3,mridangam_left,multitrack,Channel corresponding to  the left side of Mridangam
+multitrack-mridangam-right,source,mp3,mridangam_right,multitrack,Channel corresponding to  the right side of Mridangam
