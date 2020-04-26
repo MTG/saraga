@@ -106,3 +106,26 @@ def generate_md5_for_audio(root_dir, seed_ext='.mp3.mp3'):
                 fid.write(md5)
                 fid.close()
 
+def add_to_git(root_dir):
+    """
+    Adds files with allowed extention to git
+    :param root_dir:
+    :return:
+    """
+    allowed_exts = ['ctonic.txt',
+                    'sama-manual.txt',
+                    'bpm-manual.txt',
+                    'tempo-manual.txt',
+                    'sections-manual-p.txt',
+                    'mphrases-manual.txt',
+                    'mp3.md5',
+                    'json']
+    filenames = []
+    for (path, dirs, files) in os.walk(root_dir):
+        for ii, f in enumerate(files):
+            filenames.append(os.path.join(path, f))
+
+    for filename in filenames:
+        ext = ".".join(os.path.basename(filename).split('.')[1:])
+        if ext in allowed_exts:
+            print("git add %s"%(filename))
