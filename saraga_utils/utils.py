@@ -128,4 +128,4 @@ def add_to_git(root_dir):
     for filename in filenames:
         ext = ".".join(os.path.basename(filename).split('.')[1:])
         if ext in allowed_exts:
-            print("git add %s"%(filename))
+            os.system("git add %s"%(filename))
