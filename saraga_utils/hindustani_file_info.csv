@@ -6,3 +6,4 @@ sama-manual,source,txt,sama,annotation,Manually annotated sama locations,TRUE
 bpm-manual,source,txt,bpm,annotation,Manually annotated BPM,TRUE
 tempo-manual,source,txt,tempo,annotation,Manually annotated tempo of the recording,TRUE
 sections-manual-p,source,txt,sections,annotation,Manually annotated sections in the recording,TRUE
+mphrases-manual,source,txt,phrases,annotation,Manually annotated melodic phrases,TRUE
