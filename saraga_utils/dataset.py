@@ -75,6 +75,7 @@ class Dataset:
                         stats[e].append(rec_info[e])
                     else:
                         stats[e].extend([x[self.cmap['id_mapping'][e]] for x in rec_info[e]])
+        stats.update(dict(num_mbids=len(self.rec_infos)))
         self.metadata_stats = stats
 
     def get_metadata_stats(self):

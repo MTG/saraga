@@ -1,0 +1,4 @@
+0.0,1,49.437,Ālāp
+49.437,2,568.783,Bhajan (madhya rūpak)
+618.22,3,241.104,Recitation
+859.324,4,84.184,Khyāl (madhya kēharvā)
