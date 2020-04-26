@@ -1,7 +1,7 @@
 thetype,subtype,content_type,name,file_type,description
-mp3,source,mp3,audio,audio,Stereo mix of the recording
-pitch,pitch,txt,pitch,features,Automatically extracted predominant melody
-ctonic,tonic,txt,tonic,features,Automatically extracted tonic of the recording
+mp3,source,mp3,audio,audio_stereo,Stereo mix of the recording
+pitch,pitch,txt,pitch,descriptor,Automatically extracted predominant melody
+ctonic,tonic,txt,tonic,descriptor,Automatically extracted tonic of the recording
 sama-manual,source,txt,sama,annotation,Manually annotated sama locations
 bpm-manual,source,txt,bpm,annotation,Manually annotated BPM
 tempo-manual,source,txt,tempo,annotation,Manually annotated tempo of the recording
