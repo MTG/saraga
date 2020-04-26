@@ -123,7 +123,7 @@ class Dataset:
         slugs = self.file_info.thetype.unique()
 
         output = []
-        for rec in self.recs[:20]:
+        for rec in self.recs:
             try:
                 content = dn.document(rec['mbid'])
                 mapp = {}
