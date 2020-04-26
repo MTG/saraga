@@ -124,9 +124,9 @@ class Dataset:
 
         output = []
         for rec in self.recs:
+            mapp = {}
             try:
                 content = dn.document(rec['mbid'])
-                mapp = {}
                 df = pd.DataFrame(index=slugs, data={'col1': np.zeros(len(slugs))})
                 inds1 = set(content['sourcefiles']).intersection(set(slugs))
                 inds2 = set(content['derivedfiles'].keys()).intersection(set(slugs))

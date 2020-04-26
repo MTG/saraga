@@ -23,11 +23,11 @@ class Saraga:
             This is needed for testing the system since downloading and fetching takes a lot of time.
         """
 
-        # setting api token first
-        if not api_token:
-            raise Exception("API token not provided")
-        else:
-            dn.set_token(api_token)
+        # # setting api token first
+        # if not api_token:
+        #     raise Exception("API token not provided")
+        # else:
+        #     dn.set_token(api_token)
 
         # if no slug is provided, we process both the datasets (hindustani and carnatic)
         if tradition_slug is None:
@@ -41,7 +41,7 @@ class Saraga:
         # creating object for each dataset that can be used for processing on those datasets
         self.datasets = {}
         for tradition_slug, collection in self.info.items():
-            self.datasets[tradition_slug] = Dataset(tradition_slug)
+            self.datasets[tradition_slug] = Dataset(tradition_slug, api_token=api_token)
 
 
     # fetching statistics for metadata
