@@ -18,7 +18,7 @@ Last updated: 30 April 2020
 ## File formats
 
 ## License
-The audio, metedata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](LICENSE) file for more details.   
+The audio, metedata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](../LICENSE) file for more details.   
 
 ## Contributors
-Several people and institutions ahve contributed to the Saraga data collections. Please see the list of [contributors](contributors.md) for more details
+Several people and institutions ahve contributed to the Saraga data collections. Please see the list of [../contributors](contributors.md) for more details
