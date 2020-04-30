@@ -9,6 +9,7 @@ We thank the following collaborators and contributors to the Saraga collections:
 We thank all the artists who have contributed their audio recordings to the Saraga collections. 
 
 **Hindustani Music collection**
+
 Ajoy Chakrabarty
 
 Anol Chatterjee
@@ -82,6 +83,7 @@ Ulhas Kashalkar
 V. G. Jog
 
 **Carnatic Music collection**
+
 Akkarai Sornalatha
 
 Akkarai Subhalakshmi
