@@ -1,6 +1,6 @@
 # Welcome to Saraga collections
 
-Saraga collections are the largest
+Saraga collections are the largest annotated open data collections available for computational analysis of Indian Art Music. 
 
 This is the companion website to Saraga collection. 
 
@@ -18,5 +18,7 @@ Last updated: 30 April 2020
 ## File formats
 
 ## License
+The audio, metedata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](LICENSE) file for more details.   
 
 ## Contributors
+Several people and institutions ahve contributed to the Saraga data collections. Please see the list of [contributors](contributors.md) for more details
