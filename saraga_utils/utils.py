@@ -82,7 +82,7 @@ def get_paths(root_dir, seed_ext ='.mp3.mp3'):
     out_df = pd.DataFrame(out)
     out_df.to_csv(os.path.join(root_dir, 'file_paths.csv'))
 
-def generate_md5_for_audio(root_dir, seed_ext='.mp3.mp3'):
+def generate_md5(root_dir, seed_ext='.mp3.mp3'):
     """
     This function creates md5 hashes of files which ends in extention seed_ext.
     This is needed to store md5 hashes for large files (like audios) to maintain records.
@@ -96,13 +96,14 @@ def generate_md5_for_audio(root_dir, seed_ext='.mp3.mp3'):
         Extension of the file for which md5 hash is to be generated
     :return:
     """
-    for (path, dirs, files) in os.walk(root_dir):
+    for (path_, dirs, files) in os.walk(root_dir):
         for ii, f in enumerate(files):
             if f.lower().endswith(seed_ext):
-                path = os.path.join(path, f)
+                path = os.path.join(path_, f)
                 content = open(path, 'rb').read()
                 md5 = hashlib.md5(content).hexdigest()
-                fid = open(path[:-4] + '.md5', 'w')
+                md5_path = ".".join(path.split('.')[:-1]) + '.md5'
+                fid = open(md5_path, 'w')
                 fid.write(md5)
                 fid.close()
 
@@ -113,12 +114,19 @@ def add_to_git(root_dir):
     :return:
     """
     allowed_exts = ['ctonic.txt',
+                    'pitch.md5',
                     'sama-manual.txt',
                     'bpm-manual.txt',
                     'tempo-manual.txt',
                     'sections-manual-p.txt',
                     'mphrases-manual.txt',
                     'mp3.md5',
+                    'multitrack-violin.md5',
+                    'multitrack-vocal.md5 ',
+                    'multitrack-mridangam-right.md5',
+                    'multitrack-mridangam-left.md5',
+                    'multitrack-ghatam.md5',
+                    'multitrack-vocal-s.md5',
                     'json']
     filenames = []
     for (path, dirs, files) in os.walk(root_dir):
