@@ -122,7 +122,7 @@ def add_to_git(root_dir):
                     'mphrases-manual.txt',
                     'mp3.md5',
                     'multitrack-violin.md5',
-                    'multitrack-vocal.md5 ',
+                    'multitrack-vocal.md5',
                     'multitrack-mridangam-right.md5',
                     'multitrack-mridangam-left.md5',
                     'multitrack-ghatam.md5',
