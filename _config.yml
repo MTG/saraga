@@ -1,2 +1,5 @@
-title: Saraga collection
 theme: jekyll-theme-minimal
+title: Saraga collections
+description: Companion website of the Saraga collections
+logo: [Location of the logo]
+show_downloads: false
