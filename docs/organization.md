@@ -89,10 +89,34 @@ The sama file is a text file that contains a non-decreasing series of time insta
 ---
 
 #### Sections file format
+The section file stores the different structural sections in a recording. The sections in Carnatic music are lyrical, while Hindustani music sections are based on different bandishes in the same rāg with different tāl and lay. The file formats are different for Carnatic and Hindustani music collections. 
 
+For Hindustani music recordings, the section file has one section annotation per line with the following format: 
 
+`start_time,section_number,duration,section_name`
+
+e.g.
+
+```
+0.0,1,29.694,Ālāp
+29.694,2,198.953,Khyāl (vilambit ēktāl)
+228.647,3,104.179122449,Tarānā (dr̥t tīntāl)
+```
+
+`start_time` denotes the start of the section (in seconds) in the audio recording. `duration` indicates the duration of the section (in seconds) and `section_name` is the name of the section. `section_number` indicates the serial number of the section in the recording.  
+
+For Carnatic music recordings, the section file has one section annotation per line with the following format: 
+
+`start_time ignore_flag duration section_name`
+
+e.g.
+
+```
 50.808163265	1	75.069387755	Anupallavi
 125.87755102	1	137.697959184	Caraṇam
+```
+
+`start_time` denotes the start of the section (in seconds) in the audio recording. `duration` indicates the duration of the section (in seconds) and `section_name` is the name of the section. `ignore_flag` does not capture any useful information and can be ignored. 
 
 ---
 
@@ -101,7 +125,7 @@ The tempo file stores different tempo related annotations derived from sama time
 
 For Hindustani music recordings, since the sections are related to rhythmic changes (laya), the tempo file stores the tempo information for each timestamped section of the recording. Each line of the tempo file is stored as, 
 
-`tempo matra_interval sama_interval matras_per_cycle start_time duration`
+`tempo, matra_interval, sama_interval, matras_per_cycle, start_time, duration`
 
 e.g. if there are three sections in an audio recording, the tempo file might look like: 
 
@@ -111,11 +135,11 @@ e.g. if there are three sections in an audio recording, the tempo file might loo
 243, 0.247, 3.955, 16, 228.647, 317.696
 ```
 
-`tempo` stores the median tempo for the section in mātrās per minute (MPM), `matra_interval` is the tempo expressed as the duration of the mātra (essentially dividing 60 by tempo), `sama_interval` is the median duration of one tāl cycle in the section, `matras_per_cycle` is an indicator of the structure of the tāl, showing the number of mātrā in a cycle of the tāl of the recording. The last two columns, `start_time` and `duration` are expressed in seconds and correspond to the start time and duration of the section in the audio recording. 
+`tempo` stores the median tempo for the section in mātrās per minute (MPM), `matra_interval` is the tempo expressed as the duration of the mātra (essentially dividing 60 by tempo, expressed in seconds), `sama_interval` is the median duration of one tāl cycle in the section, `matras_per_cycle` is an indicator of the structure of the tāl, showing the number of mātrā in a cycle of the tāl of the recording. The last two columns, `start_time` and `duration` are expressed in seconds and correspond to the start time and duration of the section in the audio recording. 
 
 For Carnatic music recordings, since the sections are lyrical, they do not typically associated with a change of tempo. Hence the tempo files are stored with tempo information on a single line corresponding to the entire audio file treated as one section, with the following format: 
 
-`tempo_apm tempo_bpm sama_interval beats_per_cycle subdivision`
+`tempo_apm, tempo_bpm, sama_interval, beats_per_cycle, subdivisions`
 
 e.g. 
 
@@ -123,5 +147,6 @@ e.g.
 340, 170, 2.471, 14, 2
 ```
 
+`tempo_apm` and `tempo_bpm` stores the median tempo of the recording in aksharas per minute (APM) and beats per minute (BPM), respectively. `sama_interval` is the median duration (in seconds) of one tāla cycle in the recording. The last two columns capture the structure of the tāla, with `beats_per_cycle` storing the number of beats in one cycle of the tāla of the recording, and `subdivision` storing the number of aksharas per beat of the tāla of the recording (called the naḍe in Carnatic music terminology). 
 
 In both Carnatic and Hindustani recordings, a value of -1 for tempo related values indicate a section/recording without rhythmic content (such as an melodic improvisation). 
