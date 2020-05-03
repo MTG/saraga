@@ -40,6 +40,9 @@ The audio, metadata, annotations in the collections and the code in this reposit
 ## Contributors
 Several people and institutions have contributed to the Saraga data collections. Please see the list of [contributors](../contributors.md) for a complete list of contributors.  
 
+## Contribute
+Saraga collections are envisioned to be living and growing collections of data. Community contributions to the collections in terms of more audio data, editorial metadata, manual annotations and automatic extractors is welcome. Research problems and innovative applications using Saraga data collections can be showcased here. Please contact us if you wish to contribute to the data collections. 
+
 ## Contact
 If you have any questions, queries or comments about the data collections, or if you wish to contribute to the collections, please contact us: 
 
@@ -50,3 +53,5 @@ Sankalp Gulati (sankalp.gulati@upf.edu)
 Rafael Caro (rafael.caro@upf.edu)
 
 Prof. Xavier Serra (xavier.serra@upf.edu)
+
+We would be glad to know more about how you have used the Saraga data collections in your work!
