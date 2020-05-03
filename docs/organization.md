@@ -61,7 +61,7 @@ Since pitch files are large text files that are not suitable for storing in a gi
 #### Melodic phrases file format
 The manually annotated melodic phrases are stored as a text file. Each line of the file corresponds to one instance of an annotated phrase and stored in the format
 
-`start_time flag  duration  notes`
+`start_time flag duration notes`
 
 e.g.
 
@@ -103,7 +103,7 @@ e.g.
 228.647,3,104.179122449,Tarānā (dr̥t tīntāl)
 ```
 
-`start_time` denotes the start of the section (in seconds) in the audio recording. `duration` indicates the duration of the section (in seconds) and `section_name` is the name of the section. `section_number` indicates the serial number of the section in the recording.  
+`start_time` denotes the start of the section (in seconds) in the audio recording. `duration` indicates the duration of the section (in seconds) and `section_name` is the name of the section. `section_number` indicates the serial number of the section in the recording. The section name also includes the name of the tāl if available. 
 
 For Carnatic music recordings, the section file has one section annotation per line with the following format: 
 
