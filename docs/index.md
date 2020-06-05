@@ -32,7 +32,7 @@ We illustrate some of the applications that use Saraga collections for music edu
 
 1. **The [Musical Bridges](https://www.upf.edu/web/musicalbridges) project** aims at bringing together different cultures through music understanding. The tools in Musical Bridges offer interactive visualizations synchronized to recordings from the Saraga collections and facilitate the comprehension of some of the key elements of Carnatic and Hindustani music traditions. 
 
-2. **Saraga App**: We have built an android mobile app that is a music exploration tool and provides an enhanced listening experience with a subset of Saraga Hindustani and Carnatic collections. The app is free - you are invited to download the app from Play Store and try it out: https://play.google.com/store/apps/details?id=com.mtg.saraga
+2. **Saraga App**: We have built an android mobile app that is a music exploration tool and provides an enhanced listening experience with a subset of Saraga Hindustani and Carnatic collections. The app is free - we invite you to [download the app from Play Store](https://play.google.com/store/apps/details?id=com.mtg.saraga) and try it out. 
 
 ## License
 The audio, metadata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](https://github.com/MTG/saraga/blob/master/LICENSE.md) file for more details.
