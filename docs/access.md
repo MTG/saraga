@@ -4,5 +4,5 @@ A set of utility scripts to access the data in the collections is in [saraga_uti
 ## Examples
 A python notebook that explains the API and shows examples of how you can use the utility code provided in this repository is available [Python notebook](https://github.com/MTG/saraga/blob/master/examples/usage_demo.ipynb)
 
-## Tarball of audio and pitch files 
-A tarball of audio and pitch annotations that are not available through this repository is available. Please contact us for a link to the tarball. 
+## Zip archive of audio and pitch files 
+In case you don't wish to use the API to access audio and pitch files (they are not available through this repository), we have a zip archive of those files. Please [fill this form](https://forms.gle/Zs853Jwg6NCSCBFL8) or [contact us](https://github.com/MTG/saraga/blob/master/docs/index.md#contact) for a link to the archive. 
