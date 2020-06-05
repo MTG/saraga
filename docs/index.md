@@ -35,10 +35,10 @@ We illustrate some of the applications that use Saraga collections for music edu
 2. **Saraga App**: We have built an android mobile app that is a music exploration tool and provides an enhanced listening experience with a subset of Saraga Hindustani and Carnatic collections. The app is free - you are invited to download the app from Play Store and try it out: https://play.google.com/store/apps/details?id=com.mtg.saraga
 
 ## License
-The audio, metadata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](../LICENSE.md) file for more details.
+The audio, metadata, annotations in the collections and the code in this repository are released under different open licenses. Please see [LICENSE](https://github.com/MTG/saraga/blob/master/LICENSE.md) file for more details.
 
 ## Contributors
-Several people and institutions have contributed to the Saraga data collections. Please see the list of [contributors](../contributors.md) for a complete list of contributors.  
+Several people and institutions have contributed to the Saraga data collections. Please see the list of [contributors](https://github.com/MTG/saraga/blob/master/contributors.md) for a complete list of contributors.  
 
 ## Contribute
 Saraga collections are envisioned to be living and growing collections of data. Community contributions to the collections in terms of more audio data, editorial metadata, manual annotations and automatic extractors is welcome. Research problems and innovative applications using Saraga data collections can be showcased here. Please contact us if you wish to contribute to the data collections. 
