@@ -12,16 +12,16 @@ The format of each source and derived files along with the slug is explained in 
 File type | slug | Format | Source/Derived | Description | HM | CM
 ------ | ----- | ------ | ----- | ------ | ----- | -------
 metadata | `.json` | JSON | Metadata | A json containing the editorial metadata about the recording | 108 | 249
-mp3 | `.mp3.md5` | [Audio file format](#audio-file-format) | Source | Audio file of a stereo mix of the recording | 108 | 249 
-multitrack-vocal | `.multitrack-vocal.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the lead vocal track (if available) | - | 168
-multitrack-vocal-s | `.multitrack-vocal-s.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the secondary vocal track (if available) | - | 24
-multitrack-violin | `.multitrack-violin.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the violin track (if available) | - | 168
-multitrack-mridangam-left | `.multitrack-mridangam-left.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam bass drum track (if available) | - | 168
-multitrack-mridangam-right | `.multitrack-mridangam-right.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam treble drum track (if available) | - | 168
-multitrack-ghatam | `.multitrack-ghatam.md5` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the ghatam track (if available) | - | 46
+mp3 | `.mp3.mp3` | [Audio file format](#audio-file-format) | Source | Audio file of a stereo mix of the recording | 108 | 249 
+multitrack-vocal | `.multitrack-vocal.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the lead vocal track (if available) | - | 168
+multitrack-vocal-s | `.multitrack-vocal-s.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the secondary vocal track (if available) | - | 24
+multitrack-violin | `.multitrack-violin.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the violin track (if available) | - | 168
+multitrack-mridangam-left | `.multitrack-mridangam-left.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam bass drum track (if available) | - | 168
+multitrack-mridangam-right | `.multitrack-mridangam-right.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam treble drum track (if available) | - | 168
+multitrack-ghatam | `.multitrack-ghatam.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the ghatam track (if available) | - | 46
 tonic | `.ctonic.txt` | [Tonic file format](#tonic-file-format) | Derived | A file with the tonic of the recording in Hz | 108 | 249 
-pitch | `.pitch.md5` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from mixed stereo track using Melodia algorithm in Essentia | 108 | 249
-pitch-vocal | `.pitch-vocal.md5` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from the vocal track using Melodia algorithm in Essentia | - | 168
+pitch | `.pitch.txt` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from mixed stereo track using Melodia algorithm in Essentia | 108 | 249
+pitch-vocal | `.pitch-vocal.txt` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from the vocal track using Melodia algorithm in Essentia | - | 168
 mphrases-manual | `.mphrases-manual.txt` | [Melodic phrases file format](#melodic-phrases-file-format) | Source | A text file with manually annotated melodic phrases | 53 | 117
 sama-manual | `.sama-manual.txt` | [Sama file format](#sama-file-format) | Source | A text file with timestamps of sama in the audio recording | 75 | 141
 tempo-manual | `.tempo-manual.txt` | [Tempo file format](#tempo-file-format) | Source | This file shows different tempo related annotations derived from sama timestamps | 75 | 133
