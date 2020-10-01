@@ -16,10 +16,10 @@ This is the companion repository of the Saraga collections. The repository conta
 That's it, scripts are ready to use.
 
 # Scripts
-* **dataset_statistics.ipynb** : to get dataset counts of metadata fields and files in the dataset
-* **concept_statistics.ipynb** : to get dataset counts of mbids (recordings) linked with each metadata field
-* **download_by_filtering.ipynb** : to filter the dataset using metadata fields and associated file types, and subsequently download the filtered dataset
-* **download_in_bulk.ipynb** : to download the entire dataset at once.
+* **[dataset_statistics.ipynb](scripts/dataset_statistics.ipynb)** : to get dataset counts of metadata fields and files in the dataset
+* **[concept_statistics.ipynb](scripts/concept_statistics.ipynb)** : to get dataset counts of mbids (recordings) linked with each metadata field
+* **[download_by_filtering.ipynb](scripts/download_by_filtering.ipynb)** : to filter the dataset using metadata fields and associated file types, and subsequently download the filtered dataset
+* **[download_in_bulk.ipynb](scripts/download_in_bulk.ipynb)** : to download the entire dataset at once.
 
 
 
