@@ -1,0 +1,9 @@
+slug,subtype,content_type,name,type,description,github_add
+mp3,source,mp3,audio recording,audio,Stereo mix of the recording,FALSE
+pitch,pitch,txt,pitch,annotation,Automatically extracted predominant melody,FALSE
+ctonic,tonic,txt,tonic,annotation,Automatically extracted tonic of the recording,TRUE
+sama-manual,source,txt,sama,annotation,Manually annotated sama locations,TRUE
+bpm-manual,source,txt,bpm,annotation,Manually annotated BPM,TRUE
+tempo-manual,source,txt,tempo,annotation,Manually annotated tempo of the recording,TRUE
+sections-manual-p,source,txt,sections,annotation,Manually annotated sections in the recording,TRUE
+mphrases-manual,source,txt,melodic phrases,annotation,Manually annotated melodic phrases,TRUE

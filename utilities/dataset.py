@@ -3,8 +3,9 @@ import pandas as pd
 import os
 import json
 from compmusic import dunya as dn
-from saraga_utils import meta
-from saraga_utils.utils import download_file
+from utilities import meta
+from utilities.utils import download_file
+import re
 
 class Dataset:
     """
@@ -35,7 +36,8 @@ class Dataset:
 
         # init some needed variables
         self.metadata_stats = None
-        self.file_stats = None
+        self.metadata = None
+        self.files = None
         self.recs = None
         self.rec_infos = None
 
@@ -76,7 +78,46 @@ class Dataset:
                     else:
                         stats[e].extend([x[self.cmap['id_mapping'][e]] for x in rec_info[e]])
         stats.update(dict(num_mbids=len(self.rec_infos)))
+
+        rec_info_lt = []
+        entity_mapp = self.cmap['entity_mapp']
+        name_mapping = self.cmap['name_mapping']
+        for rec_info in self.rec_infos:
+            try:
+                rec_info_dict = {}
+                rec_info_dict['mbid'] = rec_info['mbid']
+                rec_info_dict['title'] = rec_info['title']
+                for key, val in entity_mapp.items():
+                    if val in rec_info:
+                        out = np.unique([v[name_mapping[val]] for v in rec_info[val]])
+                        # if len(out) == 0:
+                        #     rec_info_dict[val] = None
+                        # elif len(out) == 1:
+                        #     rec_info_dict[val] = out[0]
+                        # else:
+                        rec_info_dict[val] = out
+                rec_info_lt.append(rec_info_dict)
+            except Exception as e:
+                print("Problems processing metadata for: %s"%rec_info['mbid'])
+
+        self.metadata = pd.DataFrame(rec_info_lt)
         self.metadata_stats = stats
+
+    def consolidate_dataset_info(self):
+        """
+        This function creates a single dataframe which contains all the metadata + files information (which annotations
+        are present etc)
+        :return:
+        """
+        if self.metadata is None:
+            self.get_metadata_stats()
+        if self.files is None:
+            self.get_file_stats()
+
+        self.dataset_info = pd.merge(self.metadata, self.files, on='mbid', how='inner')
+        print("Done...")
+        return self.dataset_info
+
 
     def get_metadata_stats(self):
         """
@@ -84,7 +125,7 @@ class Dataset:
         :return:
         """
         if self.metadata_stats is None:
-            print("Computing metadata stats now...")
+            print("Fetching metadata stats, this might take around a minute ...")
             self.compute_metadata_stats()
         return self.metadata_stats
 
@@ -102,7 +143,7 @@ class Dataset:
             if ent == 'num_mbids':
                 print("Total number of recordings %d" % nums)
             elif ent != 'length':
-                print("Total number of unique %s are:%d" % (ent, len(set(nums))))
+                print("Total number of %s are:%d" % (ent, len(set(nums))))
             else:
                 print("Total length of the recordings: %0.2f hrs" % (np.sum(nums) / 3600000.))
 
@@ -112,7 +153,7 @@ class Dataset:
         This function computes stats of different file types in the dataset
         :return:
         """
-        print("This function might take some time...")
+        print("This function may take several minutes (typically 2-5 min)...")
 
         # setting the collection
         self.info['tradition_dunya'].set_collections([self.info['tradition_id']])
@@ -121,7 +162,7 @@ class Dataset:
         if self.recs is None:
             self.recs = self.info['tradition_dunya'].get_recordings()
 
-        slugs = self.file_info.thetype.unique()
+        slugs = self.file_info.slug.unique()
 
         output = []
         for rec in self.recs:
@@ -138,34 +179,38 @@ class Dataset:
             except:
                 print("Issue with: %s, %s"%( self.info['tradition_name'], rec['mbid']))
             output.append(mapp)
-        self.file_stats = pd.DataFrame(output)
+        self.files = pd.DataFrame(output)
 
     def get_file_stats(self):
         """
         Getter for file stats
         :return:
         """
-        if self.file_stats is None:
-            print("Computing file stats now...")
+        if self.files is None:
+            print("Fetching file counts...")
             self.compute_file_stats()
-        return self.file_stats
+        return self.files
 
     def print_file_stats(self):
         """
         Printing file stats
         :return:
         """
-        if self.file_stats is None:
+        if self.files is None:
             print("File stats are not computed, computing them now...")
             self.compute_file_stats()
-        for file_type, group in self.file_info.groupby('file_type'):
+        for type, group in self.file_info.groupby('type'):
             print("-------------------------------------------------------------")
             print("-------------------------------------------------------------")
-            print("These are the stats for %s type of files"%file_type)
-            cols = group.thetype.unique()
-            print(self.file_stats[cols].sum().to_markdown())
+            print("These are the stats for %s type of files"%type)
+            print("<File slug> | <Number of files in the dataset>")
+            cols = group.slug.unique()
+            print(self.files[cols].sum().to_markdown())
 
-    def download_files(self, dir_name, overwrite=False, file_types=[], thetype=[]):
+        print("\n")
+        print("File slug is essentially a machine readable identifier for that particular type of file")
+
+    def download_files(self, dir_name, overwrite=False, type=[], slug=[], mbids=[]):
         """
         Download files in the datasets.
         To know what different types of files exists in the dataset use explain_filetypes() function
@@ -175,7 +220,7 @@ class Dataset:
             Directory where the downloaded files are to be dumped
         :param overwrite: bool
             Whether or not to overwrite existing files
-        :param file_types: array
+        :param type: array
             Array of file types to be processed. Default: all the file types will be downloaded
         :return:
         """
@@ -186,24 +231,26 @@ class Dataset:
             self.rec_infos = self.info['tradition_dunya'].get_recordings(recording_detail=True)
 
         # if no file type is specified, populate every type
-        if len(file_types)==0:
-            file_types = self.file_info.file_type.unique()
+        if len(type)==0:
+            type = self.file_info.type.unique()
 
-        # if no thetype filter is specified, we fetch all possible thetypes present in chosen file_type
-        if len(thetype)==0:
-            thetype = self.file_info[self.file_info.file_type.isin(file_types)].thetype.unique()
+        # if no slug filter is specified, we fetch all possible slugs present in chosen type
+        if len(slug)==0:
+            slug = self.file_info[self.file_info.type.isin(type)].slug.unique()
 
         # iterate over each recording mbid and process the download
         for rec_info in self.rec_infos:
+            if len(mbids) > 0 and rec_info['mbid'] not in mbids:
+                continue
             # fetching names (since we need them for create apt folder structure)
             release = rec_info[self.cmap['release']][0]['title']
             recording = rec_info['title']
             artist = rec_info['album_artists'][0]['name']
 
             # sometimes release and recording names contain strange chars like "/"
-            release = release.replace("/", "_")
-            recording = recording.replace("/", "_")
-            artist = artist.replace("/", "_")
+            release = re.sub('[\/:*?"<>"]', "__", release, )
+            recording = re.sub('[\/:*?"<>"]', "__", recording, )
+            artist = re.sub('[\/:*?"<>"]', "__", artist, )
 
             file_dir = os.path.join(dir_name, self.info['tradition_name'], "%s by %s" % (release, artist), recording)
             if not os.path.isdir(file_dir):
@@ -213,33 +260,34 @@ class Dataset:
             json.dump(rec_info, open(os.path.join(file_dir, recording + '.json'), 'w'))
 
             # downloading stuff from the server
-            for index, row in self.file_info[self.file_info.file_type.isin(file_types)].iterrows():
-                ext = ".%s.%s" % (row['thetype'], row['content_type'])
+            for index, row in self.file_info[self.file_info.type.isin(type)].iterrows():
+                ext = ".%s.%s" % (row['slug'], row['content_type'])
                 file_path = os.path.join(file_dir, recording + ext)
                 if not (os.path.isfile(file_path) and not overwrite):
                     try:
-                        if row['thetype'] in thetype:
-                            download_status = download_file(rec_info['mbid'], row['thetype'], row['subtype'], file_path)
+                        if row['slug'] in slug:
+                            download_status = download_file(rec_info['mbid'], row['slug'], row['subtype'], file_path)
                     except Exception as e:
-                        print("File downloading failed for tradition: %s, mbid: %s, thetype: %s, subtype: %s" % (
-                        self.info['tradition_name'], rec_info['mbid'], row['thetype'], row['subtype']))
+                        print("File downloading failed for tradition: %s, mbid: %s, slug: %s, subtype: %s" % (
+                        self.info['tradition_name'], rec_info['mbid'], row['slug'], row['subtype']))
+
 
     def explain_filetypes(self):
         """
         This function explains different types of file types in the dataset
         :return:
         """
-        if self.file_info.file_type.nunique()<1:
+        if self.file_info.type.nunique()<1:
             print("There's something wrong...")
             return
 
-        print("There are %d types of file types in this collection"%self.file_info.file_type.nunique())
-        for file_type, group in self.file_info.groupby('file_type'):
+        print("There are %d types of file types in this collection"%self.file_info.type.nunique())
+        for type, group in self.file_info.groupby('type'):
             print('------------')
-            print('File type: %s'%file_type)
-            print("There are %d types of files within this file type."%group.thetype.nunique())
-            for thetype, group1 in group.iterrows():
-                print('Slug of the file: %s\t\t, description: %s'%(group1.thetype, group1.description))
+            print('File type: %s'%type)
+            print("There are %d types of files within this file type."%group.slug.nunique())
+            for slug, group1 in group.iterrows():
+                print('Slug of the file: %s\t\t, description: %s'%(group1.slug, group1.description))
             print('------------')
 
     def __read_metadata_info(self, tradition_slug):

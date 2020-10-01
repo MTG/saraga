@@ -5,6 +5,50 @@ import os
 import pandas as pd
 from compmusic.file import file_metadata
 import hashlib
+import ipywidgets as widgets
+from IPython.display import display
+
+
+def get_multi_select_widget(items, title):
+    # this handles output properly
+    out = widgets.Output()
+    display(out)
+
+    # this defines the call back print function
+    @out.capture()
+    def print_values(val):
+        out.clear_output()
+        if len(val['new']) == 0:
+            print("Select items (not selecting anything would mean you select all of them for filtering)")
+        else:
+            print("Selected items: ", val['new'])
+
+    # This is the main widget creation
+    multi_select = widgets.SelectMultiple(
+        options=items,
+        value=[],
+        description=title,
+        disabled=False
+    )
+    # Displaying that widget
+    display(multi_select)
+    # If nothing is selected, lets print this
+    print_values({'new': []})
+    # This is the call back
+    multi_select.observe(print_values, 'value')
+    return multi_select
+
+def series_to_list(series):
+    """
+    Given a series of list, this function populates list of unique items in the series
+    This is neded because often there are multiple concepts linked with a recording, hence a list
+    """
+    output = []
+    series = series[~series.isna()]
+    for index, item in series.iteritems():
+        output.extend(item)
+
+    return list(np.unique(output))
 
 def download_file(mbid, thetype, subtype, file_path):
     """

@@ -1,0 +1,15 @@
+slug,subtype,content_type,name,type,description,github_add
+mp3,source,mp3,audio recording,audio,Stereo mix of the recording,FALSE
+pitch,pitch,txt,pitch,annotation,Automatically extracted predominant melody,FALSE
+ctonic,tonic,txt,tonic,annotation,Automatically extracted tonic of the recording,TRUE
+sama-manual,source,txt,sama,annotation,Manually annotated sama locations,TRUE
+bpm-manual,source,txt,bpm,annotation,Manually annotated BPM,TRUE
+tempo-manual,source,txt,tempo,annotation,Manually annotated tempo of the recording,TRUE
+sections-manual-p,source,txt,sections,annotation,Manually annotated sections in the recording,TRUE
+mphrases-manual,source,txt,melodic phrases,annotation,Manually annotated melodic phrases,TRUE
+multitrack-vocal,source,mp3,vocal recording (multitrack),audio,Channel corresponding to  vocals,FALSE
+multitrack-vocal-s,source,mp3,vocal second channel recording (multitrack),audio,Channel corresponding to secondary vocals (if present),FALSE
+multitrack-violin,source,mp3,violin recording (multitrack),audio,Channel corresponding to  Violin,FALSE
+multitrack-ghatam,source,mp3,ghatam  recording (multitrack),audio,Channel corresponding to  Ghatam,FALSE
+multitrack-mridangam-left,source,mp3,mridangam_left  recording (multitrack),audio,Channel corresponding to  the left side of Mridangam,FALSE
+multitrack-mridangam-right,source,mp3,mridangam_right  recording (multitrack),audio,Channel corresponding to  the right side of Mridangam,FALSE

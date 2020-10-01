@@ -23,12 +23,17 @@ raga = 'raags'
 tala = 'taals'
 form = 'forms'
 laya = 'layas'
-lead_artists = 'album_artists'
+album_artists = 'album_artists'
 artists = 'artists'
-entities = [concert, work, raga, tala, form, laya, artists, lead_artists, 'length']
+entities = [concert, work, raga, tala, form, laya, artists, album_artists, 'length']
+entity_mapp = {'release': concert, 'work': work, 'raga':raga, 'tala':tala, 'form':form, 'laya':laya,
+               'album_artists':album_artists}
+name_mapping = {concert: 'title', work: 'title', raga: 'name', tala: 'name', form: 'name', laya: 'name',
+              album_artists: 'name', artists: 'name'}
 id_mapping = {concert: 'mbid', work: 'mbid', raga: 'uuid', tala: 'uuid', form: 'name', laya: 'uuid',
-              lead_artists: 'mbid', artists: 'mbid'}
-concept_mapp['dunya-hindustani-cc'] = dict(entities=entities, id_mapping=id_mapping, release='release')
+              album_artists: 'mbid', artists: 'mbid'}
+concept_mapp['dunya-hindustani-cc'] = dict(entities=entities, id_mapping=id_mapping,
+                                           entity_mapp=entity_mapp, name_mapping=name_mapping, release='release')
 
 concert = 'concert'  # in carnatic album level items are referred by 'concerts'
 work = 'work'
@@ -36,12 +41,17 @@ raga = 'raaga'
 tala = 'taala'
 form = 'form'
 laya = 'laya'
-lead_artists = 'album_artists'
+album_artists = 'album_artists'
 artists = 'artists'
-entities = [concert, work, raga, tala, form, laya, artists, lead_artists, 'length']
+entities = [concert, work, raga, tala, form, laya, artists, album_artists, 'length']
+entity_mapp = {'release': concert, 'work': work, 'raga':raga, 'tala':tala, 'form':form, 'laya':laya,
+               'album_artists':album_artists}
+name_mapping = {concert: 'title', work: 'title', raga: 'name', tala: 'name', form: 'name', laya: 'name',
+              album_artists: 'name', artists: 'name'}
 id_mapping = {concert: 'mbid', work: 'mbid', raga: 'uuid', tala: 'uuid', form: 'name', laya: 'uuid',
-              lead_artists: 'mbid', artists: 'mbid'}
-concept_mapp['dunya-carnatic-cc'] = dict(entities=entities, id_mapping=id_mapping, release='concert')
+              album_artists: 'mbid', artists: 'mbid'}
+concept_mapp['dunya-carnatic-cc'] = dict(entities=entities, id_mapping=id_mapping,
+                                         entity_mapp=entity_mapp, name_mapping=name_mapping, release='concert')
 
 
 content_info_ca = pd.read_csv(os.path.join(os.path.dirname(__file__), 'carnatic_file_info.csv'))
