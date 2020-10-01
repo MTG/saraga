@@ -13,6 +13,11 @@ This is the companion repository of the Saraga collections. The repository conta
 ### Install dependencies
 ```pip install -r requirements.txt```
 
+### Get an API token
+
+You can register and get an API token from : https://dunya.compmusic.upf.edu/
+
+
 That's it, scripts are ready to use.
 
 # Scripts
