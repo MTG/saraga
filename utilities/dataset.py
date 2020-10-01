@@ -14,23 +14,31 @@ class Dataset:
 
     def __init__(self, tradition_slug, api_token=None):
         """
-        Init the class...
-        :param tradition_slug: str
-            Slug of the tradition to be set for processing (dunya-carnatic-cc or dunya-hindustani-cc).
+
+        Parameters
+        ----------
+        tradition_slug
+        api_token
+        use_cached
         """
         # setting api token first
         if not api_token:
             raise Exception("API token not provided")
         else:
             dn.set_token(api_token)
+            self.api_token = api_token
 
         if tradition_slug not in meta.info.keys():
             raise Exception("Wrong tradition slug specified")
 
+        self.tradition_slug = tradition_slug
+
         # setting the info for the tradition
         self.info = meta.info[tradition_slug]
+
         # reading metadata info (just a mapping of needed info)
         self.__read_metadata_info(tradition_slug)
+
         # reading file info (just a mapping of needed info)
         self.__read_file_info(tradition_slug=tradition_slug)
 
