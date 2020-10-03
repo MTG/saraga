@@ -2,30 +2,30 @@
 
 The collections are organized into Carnatic and Hindustani sub-collections and present in the [dataset](https://github.com/MTG/saraga/tree/master/dataset) folder of the repository. Within each folder, the collections are organized into releases and then into recordings, following the `<music_tradition>/<release>/<recording_name>` format, where the release and recording names are provided in a human readable names for easy browsing. The `release` is of the form "release_name by lead_artist" where release_name and lead_artist correspond to the names from editorial metadata for the release in MusicBrainz. The `recording_name` also corresponds to the name of the recording in MusicBrainz. 
 
-Within each `recording_name` folder, all the editorial metadata, source and derived files of a recording are stored. The source and derived files for each recording are stored within the folder `<music_tradition>/<release>/<recording_name>/` as `<recording_name>.<slug>`. The `slug` depends on the type of the source or derived files corresponding to the recording. For each recording, the mapping from the MusicBrainz ID (MBID) to the file paths is provided in the following mapping files: 
+Within each `recording_name` folder, all the editorial metadata, source and derived files of a recording are stored. The source and derived files for each recording are stored within the folder `<music_tradition>/<release>/<recording_name>/` as `<recording_name>.<extension>`. The `extension` depends on the type of the source or derived files corresponding to the recording. For each recording, the mapping from the MusicBrainz ID (MBID) to the file paths is provided in the following mapping files: 
 * Carnatic: [dataset/carnatic/file_paths.csv](https://github.com/MTG/saraga/blob/master/dataset/carnatic/file_paths.csv)
 * Hindustani: [dataset/hindustani/file_paths.csv](https://github.com/MTG/saraga/blob/master/dataset/hindustani/file_paths.csv)
 
 ### File formats
-The format of each source and derived files along with the slug is explained in the following table. The last two columns show the number of recordings in the Hindustani music collection (HM) and Carnatic Music collection (CM) that contain the corresponding source/derived files. 
+The format of each source and derived files along with the slug is explained in the following table. The last two columns show the number of recordings in the Hindustani music collection (HM) and Carnatic Music collection (CM) that contain the corresponding source/derived files. The file extension and the slug (a machine readable identifier for that particular type of file to be used for API access) is also listed below. 
 
-File type | slug | Format | Source/Derived | Description | HM | CM
------- | ----- | ------ | ----- | ------ | ----- | -------
-metadata | `.json` | JSON | Metadata | A json containing the editorial metadata about the recording | 108 | 249
-mp3 | `.mp3.mp3` | [Audio file format](#audio-file-format) | Source | Audio file of a stereo mix of the recording | 108 | 249 
-multitrack-vocal | `.multitrack-vocal.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the lead vocal track (if available) | - | 168
-multitrack-vocal-s | `.multitrack-vocal-s.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the secondary vocal track (if available) | - | 24
-multitrack-violin | `.multitrack-violin.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the violin track (if available) | - | 168
-multitrack-mridangam-left | `.multitrack-mridangam-left.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam bass drum track (if available) | - | 168
-multitrack-mridangam-right | `.multitrack-mridangam-right.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam treble drum track (if available) | - | 168
-multitrack-ghatam | `.multitrack-ghatam.mp3` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the ghatam track (if available) | - | 46
-tonic | `.ctonic.txt` | [Tonic file format](#tonic-file-format) | Derived | A file with the tonic of the recording in Hz | 108 | 249 
-pitch | `.pitch.txt` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from mixed stereo track using Melodia algorithm in Essentia | 108 | 249
-pitch-vocal | `.pitch-vocal.txt` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from the vocal track using Melodia algorithm in Essentia | - | 168
-mphrases-manual | `.mphrases-manual.txt` | [Melodic phrases file format](#melodic-phrases-file-format) | Source | A text file with manually annotated melodic phrases | 53 | 117
-sama-manual | `.sama-manual.txt` | [Sama file format](#sama-file-format) | Source | A text file with timestamps of sama in the audio recording | 75 | 141
-tempo-manual | `.tempo-manual.txt` | [Tempo file format](#tempo-file-format) | Source | This file shows different tempo related annotations derived from sama timestamps | 75 | 133
-sections-manual | `.sections-manual-p.txt` | [Sections file format](#sections-file-format) | Source | A text file containing the section boundaries and section names | 75 | 119 
+File type | File extension | Slug | Format | Source/Derived | Description | HM | CM
+------ | ----- | ----- | ------ | ----- | ------ | ----- | -------
+metadata | `.json` | `json` | JSON | Metadata | A json containing the editorial metadata about the recording | 108 | 249
+mp3 | `.mp3.mp3` | `mp3` | [Audio file format](#audio-file-format) | Source | Audio file of a stereo mix of the recording | 108 | 249 
+multitrack-vocal | `.multitrack-vocal.mp3` | `multitrack-vocal` |  [Audio file format](#audio-file-format) | Source | Audio file corresponding to the lead vocal track (if available) | - | 168
+multitrack-vocal-s | `.multitrack-vocal-s.mp3` | `multitrack-vocal-s` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the secondary vocal track (if available) | - | 24
+multitrack-violin | `.multitrack-violin.mp3` | `multitrack-violin` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the violin track (if available) | - | 168
+multitrack-mridangam-left | `.multitrack-mridangam-left.mp3` | `multitrack-mridangam-left` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam bass drum track (if available) | - | 168
+multitrack-mridangam-right | `.multitrack-mridangam-right.mp3` | `multitrack-mridangam-right` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the mridangam treble drum track (if available) | - | 168
+multitrack-ghatam | `.multitrack-ghatam.mp3` | `multitrack-ghatam` | [Audio file format](#audio-file-format) | Source | Audio file corresponding to the ghatam track (if available) | - | 46
+tonic | `.ctonic.txt` | `ctonic` |  [Tonic file format](#tonic-file-format) | Derived | A file with the tonic of the recording in Hz | 108 | 249 
+pitch | `.pitch.txt` | `pitch` |  [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from mixed stereo track using Melodia algorithm in Essentia | 108 | 249
+pitch-vocal | `.pitch-vocal.txt` | `pitch-vocal` | [Pitch file format](#pitch-file-format) | Derived | A file with predominant melody (F0) extracted from the vocal track using Melodia algorithm in Essentia | - | 168
+mphrases-manual | `.mphrases-manual.txt` | `mphrases-manual` | [Melodic phrases file format](#melodic-phrases-file-format) | Source | A text file with manually annotated melodic phrases | 53 | 117
+sama-manual | `.sama-manual.txt` | `sama-manual` |  [Sama file format](#sama-file-format) | Source | A text file with timestamps of sama in the audio recording | 75 | 141
+tempo-manual | `.tempo-manual.txt` | `tempo-manual` |  [Tempo file format](#tempo-file-format) | Source | This file shows different tempo related annotations derived from sama timestamps | 75 | 133
+sections-manual | `.sections-manual-p.txt` | `sections-manual-p` | [Sections file format](#sections-file-format) | Source | A text file containing the section boundaries and section names | 75 | 119 
 
 --- 
 
