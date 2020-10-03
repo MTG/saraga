@@ -55,6 +55,10 @@ Section | Section boundaries and section names|75|119
 The data in Saraga collections are organized by individual music cultures - Carnatic and Hindustani, and further organized into releases and recordings. For each recording, we have associated audio, editorial metadata and annotations identified by the MusicBrainz ID of the recording. Further details are here: [Organization and file formats](organization.md)
 
 ## Access
+There are primarily two ways of accessing the Saraga data collections
+1. A set of scripts/notebooks that use PyCompMusic API to download all audio/metadata/annotations 
+2. Download the static dump of metadata and some annotations in this git repository + zip archive of audio and pitch files
+
 The data in the collections can be accessed through the [PyCompMusic](https://github.com/MTG/pycompmusic) API built to access Dunya collections. In addition, the Saraga repository provides a dump of all editorial metadata and some annotations. Larger files such as audio and pitch annotations are not amenable for storage in a git repository and hence a zip archive of the data is available. For tracking and versioning, the Saraga repository stores the md5 checksum of the file for comparsion with the files in the zip archive. Further details are here: [Access to data and example scripts](access.md)
 
 ## Applications
