@@ -20,17 +20,17 @@ You can register and get an API token from : https://dunya.compmusic.upf.edu/
 
 That's it, scripts are ready to use.
 
-# Scripts
+# Scripts and Notebooks
+The following notebooks are available to interact with the collections. The primary purpose of the notebooks is to provide examples to download different data and metadata available in the collections. The notebooks also provide some basic illustrative examples to interact with the data collections for analysis.  
+
 * **[dataset_statistics.ipynb](scripts/dataset_statistics.ipynb)** : to get dataset counts of metadata fields and files in the dataset
 * **[concept_statistics.ipynb](scripts/concept_statistics.ipynb)** : to get dataset counts of mbids (recordings) linked with each metadata field
 * **[download_by_filtering.ipynb](scripts/download_by_filtering.ipynb)** : to filter the dataset using metadata fields and associated file types, and subsequently download the filtered dataset
 * **[download_in_bulk.ipynb](scripts/download_in_bulk.ipynb)** : to download the entire dataset at once.
 
-
-
 # Glossary
 
-* MBID : MusicBrain identifier for the recording
+* MBID : MusicBrainz identifier for the recording
 * slug : An identifier for a concept (file or metadata)
 
 ### Tradition slug
