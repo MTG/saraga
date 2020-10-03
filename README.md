@@ -23,10 +23,10 @@ That's it, scripts are ready to use.
 # Scripts and Notebooks
 The following notebooks are available to interact with the collections. The primary purpose of the notebooks is to provide examples to download different data and metadata available in the collections. The notebooks also provide some basic illustrative examples to interact with the data collections for analysis.  
 
-* **[dataset_statistics.ipynb](scripts/dataset_statistics.ipynb)** : to get dataset counts of metadata fields and files in the dataset
-* **[concept_statistics.ipynb](scripts/concept_statistics.ipynb)** : to get dataset counts of mbids (recordings) linked with each metadata field
+* **[dataset_statistics.ipynb](scripts/dataset_statistics.ipynb)** : to get the statistics of metadata fields and files in the collections
+* **[concept_statistics.ipynb](scripts/concept_statistics.ipynb)** : to get the number of recordings (MBIDs) corresponding to each metadata field
 * **[download_by_filtering.ipynb](scripts/download_by_filtering.ipynb)** : to filter the dataset using metadata fields and associated file types, and subsequently download the filtered dataset
-* **[download_in_bulk.ipynb](scripts/download_in_bulk.ipynb)** : to download the entire dataset at once.
+* **[download_in_bulk.ipynb](scripts/download_in_bulk.ipynb)** : to download the complete dataset at once
 
 # Glossary
 
