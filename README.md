@@ -76,7 +76,7 @@ list the slugs for different metadata types in Hindustani and Carnatic tradition
 | Rāga | raags | raaga |
 | Tāla | taals | taala |
 | Form | forms | form |
-| Laya | layas | laya |
+| Laya | layas | NA |
 | Work | works | work |
 | Release | release | concert |
 | Album artist | album_artists | album_artists |
