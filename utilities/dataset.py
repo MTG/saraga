@@ -6,6 +6,7 @@ from compmusic import dunya as dn
 from utilities import meta
 from utilities.utils import download_file
 import re
+import copy
 
 class Dataset:
     """
@@ -98,11 +99,6 @@ class Dataset:
                 for key, val in entity_mapp.items():
                     if val in rec_info:
                         out = np.unique([v[name_mapping[val]] for v in rec_info[val]])
-                        # if len(out) == 0:
-                        #     rec_info_dict[val] = None
-                        # elif len(out) == 1:
-                        #     rec_info_dict[val] = out[0]
-                        # else:
                         rec_info_dict[val] = out
                 rec_info_lt.append(rec_info_dict)
             except Exception as e:
@@ -218,6 +214,7 @@ class Dataset:
         print("\n")
         print("File slug is essentially a machine readable identifier for that particular type of file")
 
+
     def download_files(self, dir_name, overwrite=False, type=[], slug=[], mbids=[]):
         """
         Download files in the datasets.
@@ -237,6 +234,14 @@ class Dataset:
         self.info['tradition_dunya'].set_collections([self.info['tradition_id']])
         if self.rec_infos is None:
             self.rec_infos = self.info['tradition_dunya'].get_recordings(recording_detail=True)
+
+        # fetching file details (to download only annotations which exist for the files)
+        if self.files is None:
+            self.compute_file_stats()
+
+        file_info = copy.deepcopy(self.files)
+        file_info = file_info.set_index('mbid')
+
 
         # if no file type is specified, populate every type
         if len(type)==0:
@@ -269,6 +274,8 @@ class Dataset:
 
             # downloading stuff from the server
             for index, row in self.file_info[self.file_info.type.isin(type)].iterrows():
+                if file_info.loc[rec_info['mbid']][row['slug']] == 0 :
+                    continue
                 ext = ".%s.%s" % (row['slug'], row['content_type'])
                 file_path = os.path.join(file_dir, recording + ext)
                 if not (os.path.isfile(file_path) and not overwrite):
@@ -278,7 +285,7 @@ class Dataset:
                     except Exception as e:
                         print("File downloading failed for tradition: %s, mbid: %s, slug: %s, subtype: %s" % (
                         self.info['tradition_name'], rec_info['mbid'], row['slug'], row['subtype']))
-
+        print("Completed downloading...")
 
     def explain_filetypes(self):
         """
