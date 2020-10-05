@@ -75,7 +75,7 @@ The audio, metadata, annotations in the collections and the code in this reposit
 Several people and institutions have contributed to the Saraga data collections. Please see the list of [contributors](https://github.com/MTG/saraga/blob/master/contributors.md) for a complete list of contributors.  
 
 ## Contribute
-Saraga collections are envisioned to be living and growing collections of data. Community contributions to the collections in terms of more audio data, editorial metadata, manual annotations and automatic extractors is welcome. Research problems and innovative applications using Saraga data collections can be showcased here. Please contact us if you wish to contribute to the data collections. 
+Saraga collections are envisioned to be living and growing collections of data. Community contributions to the collections in terms of more audio data, editorial metadata, manual annotations and automatic extractors are welcome. Research problems and innovative applications using Saraga data collections can be showcased here. If you have audio data and annotations that align well with Saraga collections in content, quality and distribution licenses, please contact any of us below to contribute them to the data collections. 
 
 ## Contact
 If you have any questions, queries or comments about the data collections, or if you wish to contribute to the collections, please contact us: 
