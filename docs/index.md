@@ -77,8 +77,10 @@ Several people and institutions have contributed to the Saraga data collections.
 ## Contribute
 Saraga collections are envisioned to be living and growing collections of data. Community contributions to the collections in terms of more audio data, editorial metadata, manual annotations and automatic extractors are welcome. Research problems and innovative applications using Saraga data collections can be showcased here. If you have audio data and annotations that align well with Saraga collections in content, quality and distribution licenses, please contact any of us below to contribute them to the data collections. 
 
+The editorial metadata for the audio recordings that already exist in the collection can be added/updated on MusicBrainz. New manual annotations or updates to the existing ones could be submitted through a pull request to the git repository, which will be merged after due verification by community experts. Automatic annotations can be added to the recordings in the collection by writing an extractor in PyCompMusic tools, which will then extract automatic annotations to be added as derived files. 
+
 ## Contact
-If you have any questions, queries or comments about the data collections, or if you wish to contribute to the collections, please contact us: 
+If you have any questions, queries or comments about the data collections, or if you wish to contribute to the collections, please contact any of us below: 
 
 Ajay Srinivasamurthy (ajays.murthy@upf.edu)
 
