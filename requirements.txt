@@ -1,4 +1,4 @@
-notebook==6.0.3
+notebook==6.4.1
 numpy==1.18.1
 git+git://github.com/MTG/pycompmusic@88d98a0bc37b2c3ca040dbe6141a53bf9bcff9e4
 pandas
