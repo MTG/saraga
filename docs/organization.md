@@ -125,7 +125,7 @@ The tempo file stores different tempo related annotations derived from sama time
 
 For Hindustani music recordings, since the sections are related to rhythmic changes (laya), the tempo file stores the tempo information for each timestamped section of the recording. Each line of the tempo file is stored as, 
 
-`tempo, matra_interval, sama_interval, matras_per_cycle, start_time, duration`
+`tempo, matra_interval, sama_interval, matras_per_cycle, start_time, end_time`
 
 e.g. if there are three sections in an audio recording, the tempo file might look like: 
 
@@ -135,7 +135,7 @@ e.g. if there are three sections in an audio recording, the tempo file might loo
 243, 0.247, 3.955, 16, 228.647, 317.696
 ```
 
-`tempo` stores the median tempo for the section in mātrās per minute (MPM), `matra_interval` is the tempo expressed as the duration of the mātra (essentially dividing 60 by tempo, expressed in seconds), `sama_interval` is the median duration of one tāl cycle in the section, `matras_per_cycle` is an indicator of the structure of the tāl, showing the number of mātrā in a cycle of the tāl of the recording. The last two columns, `start_time` and `duration` are expressed in seconds and correspond to the start time and duration of the section in the audio recording. 
+`tempo` stores the median tempo for the section in mātrās per minute (MPM), `matra_interval` is the tempo expressed as the duration of the mātra (essentially dividing 60 by tempo, expressed in seconds), `sama_interval` is the median duration of one tāl cycle in the section, `matras_per_cycle` is an indicator of the structure of the tāl, showing the number of mātrā in a cycle of the tāl of the recording. The last two columns, `start_time` and `end_time` are expressed in seconds and correspond to the start time and end time of the section in the audio recording. 
 
 For Carnatic music recordings, since the sections are lyrical, they do not typically associated with a change of tempo. Hence the tempo files are stored with tempo information on a single line corresponding to the entire audio file treated as one section, with the following format: 
 
