@@ -1,12 +1,19 @@
 # Welcome to Saraga collections
 
-**Website under construction**
-
-*(Last updated: 03 Oct 2020)*
+*(Last updated: 04 April 2022)*
 
 This is the companion website to the Saraga collections. Saraga collections are currently the largest annotated open data collections available for computational research on Indian Art Music. They comprise audio, editorial metadata, manual and automatically extracted annotations for different aspects of melody, rhythm and structure. The Saraga collections were conceived and built as a part of the CompMusic project and is currently maintained by the [Music Technology Group](https://www.upf.edu/web/mtg/), Universitat Pompeu Fabra, Barcelona. 
 
 This page provides up-to-date statistics of the collections, detailed documentation on the organization of the collections, available annotations and their formats, example scripts to access the collections through the PyCompMusic API. 
+
+## Companion Paper
+This website is intended to be the companion website to the following paper, which describes the Saraga collections in detail: 
+
+```
+A. Srinivasamurthy, S. Gulati, R. Caro, X. Serra, "Saraga: Open Datasets for Research on Indian Art Music", Empirical Musicology Review, vol. 16, no. 1, pp. 85-98, 2021.
+```
+
+If you use the Saraga data collections in your work, please cite the above paper and include a link to this webpage (https://mtg.github.io/saraga/). 
 
 ## Collection statistics
 
